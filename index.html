@@ -3,23 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=240,height=282,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Pokebonk - R1 Edition</title>
-<meta http-equiv="refresh" content="0; url=https://pokebonk.com/">
+<meta name="screen-orientation" content="landscape">
+<title>Pokebonk R1</title>
 <style>
 html,body{margin:0;padding:0;width:240px;height:282px;overflow:hidden;background:#1a1630;font-family:sans-serif;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;}
-.wrap{padding:16px;}
+.wrap{padding:14px;}
 h1{font-size:14px;margin:0 0 6px;}
-p{font-size:8px;opacity:.8;margin:0;}
+p{font-size:8px;opacity:.9;margin:4px 0;}
+a{color:#fe2c55;text-decoration:none;font-size:8px;}
+button{background:#fe2c55;border:0;color:#fff;padding:8px 12px;border-radius:8px;font-size:9px;margin-top:8px;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Pokebonk</h1>
-  <p>Launching the Pokebonk survivor game...</p>
-  <p style="margin-top:8px;"><a href="https://pokebonk.com/" style="color:#9bf;">Open now</a></p>
+  <p>Best on R1 in true landscape mode.</p>
+  <p>If the rotate prompt is too small to reach, physically turn the R1 device 90 degrees so PokéBonk sees landscape and dismisses it.</p>
+  
+  <button onclick="go()">Open Pokebonk</button>
 </div>
 <script>
-window.location.replace("https://pokebonk.com/");
+function go(){
+  try { screen.orientation && screen.orientation.lock && screen.orientation.lock('landscape'); } catch (e) {}
+  window.location.replace("https://pokebonk.com/");
+}
+setTimeout(go, 1200);
 </script>
 </body>
 </html>
